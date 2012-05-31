@@ -27,8 +27,8 @@ test(_, 0, 0) ->
 test(Cmd, 0, Recv) ->
 	%io:format("~p ~p~n", [0, Recv]),
 	receive
-		{res, {benchmark, I}, _} ->
-			%io:format("< ~p ", [I]),
+		{res, {benchmark, _I}, _} ->
+			%io:format("< ~p ", [_I]),
 			test(Cmd, 0, Recv - 1);
 		E ->
 			io:format("? ~p~n", [E]),
@@ -37,8 +37,8 @@ test(Cmd, 0, Recv) ->
 test(Cmd, Send, Recv) ->
 	%io:format("~p ~p~n", [Send, Recv]),
 	receive
-		{res, {benchmark, I}, _} ->
-			%io:format("< ~p ", [I]),
+		{res, {benchmark, _I}, _} ->
+			%io:format("< ~p ", [_I]),
 			test(Cmd, Send, Recv - 1);
 		E ->
 			io:format("? ~p~n", [E]),
